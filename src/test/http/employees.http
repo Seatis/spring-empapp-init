@@ -13,7 +13,11 @@ POST http://localhost:8080/api/employees
 Content-Type: application/json
 
 {
-"name": "John Doe"
+"name": "Jane ex Doe"
 }
+
+###
+
+DELETE http://localhost:8080/api/employees/3
 
 ###

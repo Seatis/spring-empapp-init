@@ -34,7 +34,7 @@ public class EmployeeService {
     public EmployeeDto findEmployeeById(long id) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(employeeRepository.findByIdWithAddresses(id)
-                        .orElseThrow(() -> new IllegalArgumentException("Employee not found with id: " + id)),
+                        .orElseThrow(() -> new NotFoundException("Employee not found with id: " + id)),
                 EmployeeDto.class);
     }
 
@@ -46,11 +46,9 @@ public class EmployeeService {
         return modelMapper.map(employeeToModify, EmployeeDto.class);
     }
 
-    public EmployeeDto deleteEmployee(long id) {
+    public void deleteEmployee(long id) {
         Employee employee = employeeRepository.findByIdWithAddresses(id)
-                .orElseThrow(() -> new IllegalArgumentException("Employee not found with id: " + id));
+                .orElseThrow(() -> new NotFoundException("Employee not found with id: " + id));
         employeeRepository.delete(employee);
-        ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(employee, EmployeeDto.class);
     }
 }

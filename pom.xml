@@ -19,7 +19,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- Java 13 csak Boot 2.2.0 Milestone-ban -->
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 
 	<dependencies>
@@ -49,6 +49,12 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.zalando</groupId>
+			<artifactId>problem-spring-web-starter</artifactId>
+			<version>0.26.2</version>
 		</dependency>
 
 		<dependency>
